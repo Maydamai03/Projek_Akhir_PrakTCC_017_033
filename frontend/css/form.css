@@ -98,58 +98,110 @@ button.logout:hover {
 }
 
 
-
-.form-card {
-  background-color: white;
-  border-radius: 10px;
-  padding: 20px;
-  margin-top: 20px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-  max-width: 1000px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+#form-title {
+  color: #ff8c00;
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: center;
 }
 
+/* Form wrapper and card styling */
+.form-wrapper {
+  max-width: 1200px;
+  margin: 0 auto 40px; /* Ditambahkan margin-bottom 40px */
+  padding: 0 20px;
+}
+
+/* Atau alternatifnya bisa di .form-card */
+.form-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-bottom: 40px; /* Opsi alternatif */
+}
+
+/* Form layout */
 .form-top {
   display: flex;
-  gap: 20px;
-  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 30px; /* Added spacing before the button */
   flex-wrap: wrap;
 }
 
-.form-left,
-.form-center,
-.form-right {
+.form-left, .form-center, .form-right {
   flex: 1;
-  min-width: 250px;
+  min-width: 280px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
 }
 
-textarea {
-  resize: vertical;
-  min-height: 100px;
+.form-left,
+.form-center {
+  border-right: 1px solid #ddd;
 }
 
-.form-bottom {
-  display: flex;
-  justify-content: center;
-  margin-top: 10px;
+/* Input fields styling */
+label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
 }
 
-.form-bottom button {
-  padding: 10px 30px;
+input, textarea {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 12px;
   font-size: 1rem;
+  background-color: #fdfdfd;
+  transition: border-color 0.2s;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input:focus, textarea:focus {
+  border-color: #ff8c00;
+  outline: none;
+}
+
+/* Make textarea fill available height */
+textarea {
+  flex-grow: 1;
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Button styling */
+.form-bottom button {
+  background-color: #28a745;
+  color: white;
   border: none;
-  background-color: #8cff00;
-  color: rgb(0, 0, 0);
-  border-radius: 5px;
+  border-radius: 8px;
+  padding: 12px 0;
+  font-weight: bold;
+  width: 100%;
   cursor: pointer;
+  transition: background-color 0.2s;
+  font-size: 1rem;
 }
 
 .form-bottom button:hover {
-  background-color: #c7f68f;
+  background-color: #218838;
 }
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .form-left, .form-center {
+    border-right: none;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+  }
+  
+  .form-top {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+

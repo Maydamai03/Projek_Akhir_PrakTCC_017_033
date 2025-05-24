@@ -4,19 +4,15 @@
   <meta charset="UTF-8">
   <title>Form Rumah</title>
   <style>
-    body { font-family: sans-serif; padding: 20px; }
-    input, textarea {
-      display: block;
-      margin-bottom: 10px;
-      padding: 8px;
-      width: 300px;
-    }
+    
     label {
       margin-top: 10px;
       font-weight: bold;
     }
   </style>
     <link rel="stylesheet" href="css/form.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
 </head>
 <body>
@@ -37,8 +33,10 @@
     </div>
   </nav>
 
-  <h1 style="text-align: center;" id="form-title">Tambah Rumah</h1>
+  <h1 id="form-title"><i class="fas fa-home"></i> Tambah Rumah</h1>
 
+<div class="form-wrapper">
+ 
   <form id="formRumah" enctype="multipart/form-data" class="form-card">
   <div class="form-top">
     <!-- Kiri: Gambar -->
@@ -71,6 +69,9 @@
     <button type="submit">Simpan</button>
   </div>
 </form>
+  
+</div>
+
 
 
   <script src="js/crudRumah.js"></script>
