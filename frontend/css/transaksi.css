@@ -8,39 +8,76 @@ body {
 
 /* ======= Navbar ======= */
 .navbar {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #ff8c00;
   color: white;
-  padding: 0 20px;
-  height: 60px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-}
-
-.navbar a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
+  padding: 14px 20px;
+  flex-wrap: nowrap;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar .brand {
-  font-weight: bold;
-  font-size: 1.5em;
-  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
   color: white;
-  padding: 0;
-  margin: 0;
+  text-decoration: none;
+
+}
+
+.navbar-left {
+  flex: 1;
+}
+
+.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 25px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.navbar-center a {
+  color: white;
+  text-decoration: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.navbar-center a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.navbar-right {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  white-space: nowrap; /* supaya nama/email tidak pecah baris */
+}
+
+.navbar-right #auth-info {
+  max-width: 180px; /* batasi panjang teks agar tetap rapi */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 button.logout {
-  padding: 8px 16px;
+  padding: 6px 12px;
   background-color: #9f0606;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
 }
 
 button.logout:hover {
