@@ -1,0 +1,147 @@
+/* ======= Global Body ======= */
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+}
+
+/* ======= Navbar ======= */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ff8c00;
+  color: white;
+  padding: 0 20px;
+  height: 60px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .brand {
+  font-weight: bold;
+  font-size: 1.5em;
+  text-decoration: none;
+  color: white;
+  padding: 0;
+  margin: 0;
+}
+
+button.logout {
+  padding: 8px 16px;
+  background-color: #9f0606;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+button.logout:hover {
+  background-color: #e24848;
+}
+
+/* ======= Heading ======= */
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2rem;
+  color: #333;
+}
+
+/* (CSS lainnya tetap sama seperti sebelumnya) */
+
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+th, td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  background-color: #fff3e0;
+  font-weight: 600;
+  color: #333;
+}
+
+tbody tr:hover {
+  background-color: #fff7eb;
+}
+
+button {
+  padding: 8px 14px;
+  background-color: #ff8c00;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #e67600;
+}
+
+/* Warna primer untuk judul */
+.judul-transaksi {
+  color: #ff8c00;
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2rem;
+}
+.judul-transaksi i {
+  margin-right: 10px;
+}
+
+/* Pembungkus tabel */
+.tabel-wrapper {
+  padding: 0 30px;
+}
+
+/* Tabel transaksi */
+#transaksiList {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+#transaksiList th,
+#transaksiList td {
+  padding: 12px 16px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#transaksiList th {
+  background-color: #ff8c00;
+  color: white;
+}
+
+/* Status ikon */
+.status-selesai {
+  color: green;
+  font-weight: bold;
+}
+.status-menunggu {
+  color: orange;
+  font-weight: bold;
+}
+#transaksiList td i {
+  margin-right: 5px;
+}

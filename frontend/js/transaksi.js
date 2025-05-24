@@ -52,7 +52,7 @@ async function fetchTransaksi() {
     const data = await res.json();
 
     transaksiList.innerHTML = `
-      <table class="transaksi-table">
+      <table>
         <thead>
           <tr>
             <th>ID</th>
@@ -66,11 +66,11 @@ async function fetchTransaksi() {
             <tr>
               <td>${trx.id}</td>
               <td>${trx.rumah?.nama || 'Tanpa Nama'}</td>
-              <td class="status ${trx.status.toLowerCase()}">${trx.status}</td>
+              <td>${trx.status}</td>
               ${role === "admin" ? `
                 <td>
                   ${trx.status !== "selesai" 
-                    ? `<button class="btn-selesai" onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
+                    ? `<button onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
                     : "-"}
                 </td>
               ` : ""}
