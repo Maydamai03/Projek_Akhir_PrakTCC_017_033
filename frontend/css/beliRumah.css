@@ -116,21 +116,44 @@ button.logout:hover {
 
 /* Bagian Bawah: Tombol */
 .button-container {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 0 10px;
+  flex-wrap: wrap;
 }
 
-.button-container button {
-  padding: 12px 40px;
+.button-container button,
+.button-container a {
+  flex: 1 1 45%;
   font-size: 1.1rem;
+  text-align: center;
+  padding: 12px 0;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Tombol Beli Rumah */
+.button-container button {
   background-color: #28a745;
   color: white;
   border: none;
-  border-radius: 6px;
-  cursor: pointer;
 }
 
 .button-container button:hover {
   background-color: #218838;
+}
+
+/* Tombol Hubungi Admin */
+#btnHubungi {
+  background-color: #007bff;
+  color: white;
+  border: none;
+}
+
+#btnHubungi:hover {
+  background-color: #0056b3;
 }
 
 /* popup.css */
@@ -150,7 +173,6 @@ button.logout:hover {
   animation: fadeIn 0.3s ease;
 }
 
-
 #popupConfirm.fade-out {
   animation: fadeOut 0.3s ease forwards;
 }
@@ -163,8 +185,6 @@ button.logout:hover {
   text-align: center;
   animation: scaleIn 0.3s ease;
 }
-
-
 
 #popupConfirm.fade-out .modal-content {
   animation: scaleOut 0.3s ease forwards;
@@ -207,4 +227,16 @@ button.logout:hover {
 @keyframes scaleOut {
   from { transform: scale(1); opacity: 1; }
   to { transform: scale(0.8); opacity: 0; }
+}
+
+/* Responsif untuk layar kecil */
+@media (max-width: 600px) {
+  .button-container {
+    flex-direction: column;
+  }
+
+  .button-container button,
+  .button-container a {
+    width: 100%;
+  }
 }

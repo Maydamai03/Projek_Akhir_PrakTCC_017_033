@@ -7,14 +7,15 @@ const gambarDiv = document.getElementById("gambarRumah");
 const dataDiv = document.getElementById("dataRumah");
 const deskripsiDiv = document.getElementById("deskripsiRumah");
 const btnBeli = document.getElementById("btnBeli");
-const popupContainer = document.getElementById("popupContainer"); // Pastikan ada <div id="popupContainer"></div> di HTML
+const popupContainer = document.getElementById("popupContainer");
 
 const urlParams = new URLSearchParams(window.location.search);
 const rumahId = urlParams.get("id");
 
+let role = "user";
 try {
   const payload = JSON.parse(atob(token.split('.')[1]));
-  const role = payload.role || 'user';
+  role = payload.role || 'user';
   const email = payload.email || 'pengguna';
   const authInfo = document.getElementById("auth-info");
 
@@ -53,6 +54,15 @@ async function fetchRumah() {
     deskripsiDiv.innerHTML = `
       <p><strong>Deskripsi Lengkap: <br></strong>${rumah.deskripsi}</p>
     `;
+
+    // Tambahkan tombol Hubungi Admin setelah rumah ditampilkan
+    const buttonContainer = document.querySelector(".button-container");
+    const hubungiBtn = document.createElement("a");
+    hubungiBtn.href = "https://www.instagram.com/wahyu_vr311?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
+    hubungiBtn.innerText = "Hubungi Admin";
+    hubungiBtn.target = "_blank";
+    hubungiBtn.id = "btnHubungi";
+    buttonContainer.appendChild(hubungiBtn);
   } catch (error) {
     alert(error.message);
     location.href = "index.html";
