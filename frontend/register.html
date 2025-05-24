@@ -2,20 +2,26 @@
 <html>
 <head>
   <title>Register</title>
+  <link rel="stylesheet" href="css/auth.css">
 </head>
 <body>
-  <h2>Register</h2>
-  <form id="registerForm">
-    <input type="text" id="name" placeholder="Nama" required><br>
-    <input type="email" id="email" placeholder="Email" required><br>
-    <input type="password" id="password" placeholder="Password" required><br>
-    <select id="role">
-      <option value="user">User</option>
-      <option value="admin">Admin</option>
-    </select><br>
-    <button type="submit">Register</button>
-  </form>
+  <div class="card">
+    <h2>Register</h2>
+    <form id="registerForm">
+      <input type="text" id="name" placeholder="Nama" required><br>
+      <input type="email" id="email" placeholder="Email" required><br>
+      <input type="password" id="password" placeholder="Password" required><br>
+      <select id="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+      </select><br>
+      <button type="submit">Register</button>
+    </form>
+
+    <p class="link-text">Sudah punya akun? <a href="login.html">Login disini</a></p>
+  </div>
 
   <script src="./js/register.js"></script>
 </body>
 </html>
+
