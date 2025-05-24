@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <title>Beli Rumah</title>
   <link rel="stylesheet" href="css/beliRumah.css" />
+  <link rel="stylesheet" href="css/popup.css" /> <!-- tambahkan ini -->
+  
 </head>
 <body>
 
@@ -12,9 +14,9 @@
       <a href="index.html" class="brand">HOMIZ</a>
     </div>
     <div class="navbar-center">
-  <a href="formRumah.html" id="link-tambah-rumah" style="display:none;">Tambah Rumah</a>
-  <a href="transaksi.html" id="link-transaksi" style="display:none;">Transaksi</a>
-</div>
+      <a href="formRumah.html" id="link-tambah-rumah" style="display:none;">Tambah Rumah</a>
+      <a href="transaksi.html" id="link-transaksi" style="display:none;">Transaksi</a>
+    </div>
     <div class="navbar-right">
       <span id="auth-info">Hai, </span>
       <button class="logout" onclick="logout()">Logout</button>
@@ -22,19 +24,19 @@
   </nav>
 
   <div class="rumah-card">
-  <div class="rumah-info">
-    <div class="gambar-container" id="gambarRumah"></div>
+    <div class="rumah-info">
+      <div class="gambar-container" id="gambarRumah"></div>
+      <div class="data-container" id="dataRumah"></div>
+      <div class="deskripsi-container" id="deskripsiRumah"></div>
+    </div>
 
-    <div class="data-container" id="dataRumah"></div>
-
-    <div class="deskripsi-container" id="deskripsiRumah"></div>
+    <div class="button-container">
+      <button id="btnBeli">Beli Rumah</button>
+    </div>
   </div>
 
-  <div class="button-container">
-    <button id="btnBeli">Beli Rumah</button>
-  </div>
-</div>
-
+  <!-- ⬇️ Container untuk pop-up modal konfirmasi -->
+  <div id="popupContainer"></div>
 
   <script src="js/beliRumah.js"></script>
   <script src="js/index.js"></script>

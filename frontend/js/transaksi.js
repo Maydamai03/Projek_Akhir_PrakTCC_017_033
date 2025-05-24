@@ -47,33 +47,37 @@ async function fetchTransaksi() {
     const data = await res.json();
 
     transaksiList.innerHTML = `
-      <table>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Nama Rumah</th>
-            <th>Status</th>
-            ${role === "admin" ? "<th>Aksi</th>" : ""}
-          </tr>
-        </thead>
-        <tbody>
-          ${data.map(trx => `
-            <tr>
-              <td>${trx.id}</td>
-              <td>${trx.rumah?.nama || 'Tanpa Nama'}</td>
-              <td>${trx.status}</td>
-              ${role === "admin" ? `
-                <td>
-                  ${trx.status !== "selesai" 
-                    ? `<button onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
-                    : "-"}
-                </td>
-              ` : ""}
-            </tr>
-          `).join("")}
-        </tbody>
-      </table>
-    `;
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama Rumah</th>
+        <th>Status</th>
+        ${role === "admin" ? "<th>Aksi</th>" : ""}
+      </tr>
+    </thead>
+    <tbody>
+      ${data.map(trx => `
+        <tr>
+          <td>${trx.id}</td>
+          <td>${trx.rumah?.nama || 'Tanpa Nama'}</td>
+          <td class="${trx.status === "selesai" ? "status-selesai" : "status-menunggu"}">
+            <i class="fas ${trx.status === "selesai" ? "fa-check-circle" : "fa-clock"}"></i>
+            ${trx.status}
+          </td>
+          ${role === "admin" ? `
+            <td>
+              ${trx.status !== "selesai" 
+                ? `<button onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
+                : "-"}
+            </td>
+          ` : ""}
+        </tr>
+      `).join("")}
+    </tbody>
+  </table>
+`;
+
   } catch (error) {
     alert(error.message);
   }
