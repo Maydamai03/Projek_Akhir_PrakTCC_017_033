@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Daftar Rumah</title>
+ <style>
+  body { font-family: sans-serif; padding: 20px; }
+  .rumah {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px 0;
+    max-width: 400px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  .rumah img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
+  button {
+    margin: 5px 5px 0 0;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+</style>
+
+</head>
+<body>
+
+  <h1>Daftar Rumah</h1>
+  <div id="auth-info"></div>
+  <div id="btn-container">
+    <button onclick="logout()">Logout</button>
+    <button id="btnTambah" style="display:none" onclick="location.href='tambahRumah.html'">Tambah Rumah</button>
+    <button id="btnTransaksi" style="display:none" onclick="location.href='transaksi.html'">Transaksi</button>
+
+  </div>
+
+  <div id="rumah-list"></div>
+
+  <!-- Pisahkan JS -->
+  <script src="js/index.js"></script>
+</body>
+</html>

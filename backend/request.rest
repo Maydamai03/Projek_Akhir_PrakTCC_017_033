@@ -1,0 +1,50 @@
+### Tambah Rumah
+POST http://localhost:5000/rumah
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MywiZW1haWwiOiJ0ZXNAZ21haWwuY29tIiwicm9sZSI6ImFkbWluIiwiaWF0IjoxNzQ4MDU5OTI3LCJleHAiOjE3NDgxNDYzMjd9.rCVnrsV07LcxszS6WX7lMDJVmNhsCj7ZVZ4muAqJmBs
+
+{
+  "nama": "Rumah bagos",
+  "lokasi": "Sleman",
+  "harga": 10002000,
+  "deskripsi": "Rumah beban emel",
+  "userId": 2 ,
+  "gambar":"sugab.jpg"
+}
+
+
+
+### GET daftar rumah
+GET http://localhost:5000/rumah/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJoYWlAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE3NDgwNjQ4OTIsImV4cCI6MTc0ODE1MTI5Mn0.906fbQRghqRGHl_wk_tQvWaN5PhkHjzkfGpZaXXk8Gg
+
+
+
+### POST transaksi (userId 1 beli rumahId 2)
+POST http://localhost:5000/transaksi
+Content-Type: application/json
+
+{
+  "userId": 1,
+  "rumahId": 1
+}
+
+### Register user baru
+POST http://localhost:5000/register
+Content-Type: application/json
+
+{
+  "name": "hai",
+  "email": "hai@gmail.com",
+  "password": "123",
+  "role": "user"
+}
+
+### Login
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+  "email": "hai@gmail.com",
+  "password": "123"
+}
