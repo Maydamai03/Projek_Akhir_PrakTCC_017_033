@@ -48,9 +48,9 @@ async function fetchRumah() {
                 ${rumah.gambar ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />` : '<img src="default.jpg" alt="No Image" />'}
                 <p>Lokasi: ${rumah.lokasi}</p>
                 <p>Harga: Rp${rumah.harga.toLocaleString()}</p>
-                <p>${rumah.deskripsi}</p>
+                
                 ${role === "user" ? `
-                    <button class="beli" onclick="location.href='beliRumah.html?id=${rumah.id}'">Beli</button>
+                    <button class="beli" onclick="location.href='beliRumah.html?id=${rumah.id}'">Tinjau Rumah</button>
                 ` : ""}
                 ${role === "admin" ? `
                     <button class="edit" onclick="location.href='formRumah.html?id=${rumah.id}'">Edit</button>
