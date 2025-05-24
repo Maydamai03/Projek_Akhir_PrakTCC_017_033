@@ -16,30 +16,63 @@
       font-weight: bold;
     }
   </style>
+    <link rel="stylesheet" href="css/form.css" />
+
 </head>
 <body>
 
-  <h1 id="form-title">Tambah Rumah</h1>
+   <nav class="navbar">
+    <div class="navbar-left">
+      <a href="index.html" class="brand">HOMIZ</a>
+    </div>
+    <div class="navbar-center" id="admin-links" style="display: none;">
+      <a href="formRumah.html">Tambah Rumah</a>
+      <a href="transaksi.html">Transaksi</a>
+    </div>
+    <div class="navbar-right">
+      <span id="auth-info">Hai, </span>
+      <button class= "logout" onclick="logout()">Logout</button>
+    </div>
+  </nav>
 
-  <form id="formRumah" enctype="multipart/form-data">
-    <label>Nama:</label>
-    <input type="text" name="nama" required />
+  <h1 style="text-align: center;" id="form-title">Tambah Rumah</h1>
 
-    <label>Lokasi:</label>
-    <input type="text" name="lokasi" required />
+  <form id="formRumah" enctype="multipart/form-data" class="form-card">
+  <div class="form-top">
+    <!-- Kiri: Gambar -->
+    <div class="form-left">
+      <label>Gambar:</label>
+      <input type="file" name="gambar" accept="image/*" />
+    </div>
 
-    <label>Harga:</label>
-    <input type="number" name="harga" required />
+    <!-- Tengah: Nama, Lokasi, Harga -->
+    <div class="form-center">
+      <label>Nama:</label>
+      <input type="text" name="nama" required />
 
-    <label>Deskripsi:</label>
-    <textarea name="deskripsi" required></textarea>
+      <label>Lokasi:</label>
+      <input type="text" name="lokasi" required />
 
-    <label>Gambar:</label>
-    <input type="file" name="gambar" accept="image/*" />
+      <label>Harga:</label>
+      <input type="number" name="harga" required />
+    </div>
 
+    <!-- Kanan: Deskripsi -->
+    <div class="form-right">
+      <label>Deskripsi:</label>
+      <textarea name="deskripsi" required></textarea>
+    </div>
+  </div>
+
+  <!-- Bawah: Tombol -->
+  <div class="form-bottom">
     <button type="submit">Simpan</button>
-  </form>
+  </div>
+</form>
+
 
   <script src="js/crudRumah.js"></script>
+  <script src="js/index.js"></script>
+
 </body>
 </html>

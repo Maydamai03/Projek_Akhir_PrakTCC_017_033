@@ -89,6 +89,19 @@ button:hover {
   background-color: #e24848;
 }
 
+button.logout {
+  padding: 6px 12px;
+  background-color: #9f0606;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button.logout:hover {
+  background-color: #e24848;
+}
+
 .rumah button.edit,
 .rumah button.delete {
   width: 100%;
@@ -97,16 +110,23 @@ button:hover {
   box-sizing: border-box;
   font-weight: bold;
   
-  background-color: #328832;
+  background-color: #b5b87a;
 
 }
 
 .rumah button.delete {
-  background-color: #b91c1c;
+  background-color: #000000;
 }
 
 .rumah button.delete:hover {
   background-color: #ef4444;
 }
 
+.rumah button.beli {
+  background-color: #656a2e;
+}
+
+.rumah button.beli:hover {
+  background-color: #b3ba64;
+}
 

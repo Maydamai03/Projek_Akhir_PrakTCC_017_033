@@ -6,6 +6,19 @@ const title = document.getElementById("form-title");
 const urlParams = new URLSearchParams(window.location.search);
 const rumahId = urlParams.get("id");
 const isEdit = Boolean(rumahId);
+const authInfo = document.getElementById("auth-info");
+
+// ambil email dari token
+const payload = JSON.parse(atob(token.split('.')[1]));
+const email = payload.email || 'pengguna';
+const role = payload.role;
+
+const adminLinks = document.getElementById("admin-links");
+if (role === "admin" && adminLinks) {
+    adminLinks.style.display = "flex";
+}
+
+authInfo.innerText = `Hai, ${email}`;
 
 // Jika edit, ubah judul halaman dan isi form
 if (isEdit) {
@@ -57,9 +70,13 @@ form.addEventListener("submit", async (e) => {
     const data = JSON.parse(text);
 
     alert(isEdit ? "Rumah berhasil diperbarui" : "Rumah berhasil ditambahkan");
-    location.href = "/index.html";
+    window.location.href = "index.html";
   } catch (err) {
     alert("Error: " + err.message);
   }
 });
 
+function logout() {
+    localStorage.removeItem("token");
+    location.href = "login.html";
+}
