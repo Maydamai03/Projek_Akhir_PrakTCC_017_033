@@ -5,7 +5,7 @@ const transaksiLink = document.getElementById("link-transaksi");
 const tambahRumahLink = document.getElementById("link-tambah-rumah");
 
 if (!token) {
-    location.href = "login.html";
+  location.href = "login.html";
 }
 
 async function fetchRumah() {
@@ -51,20 +51,31 @@ async function fetchRumah() {
     data.forEach(rumah => {
       const div = document.createElement("div");
       div.className = "rumah";
-      div.innerHTML = `
-        <h3>${rumah.nama}</h3>
-        ${rumah.gambar ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />` : '<img src="default.jpg" alt="No Image" />'}
-        <p>Lokasi: ${rumah.lokasi}</p>
-        <p>Harga: Rp${rumah.harga.toLocaleString()}</p>
 
-        ${role === "user" ? `
-          <button class="beli" onclick="location.href='beliRumah.html?id=${rumah.id}'">Tinjau Rumah</button>
-        ` : ""}
-        ${role === "admin" ? `
-          <button class="edit" onclick="location.href='formRumah.html?id=${rumah.id}'">Edit</button>
-          <button class="delete" onclick="hapus(${rumah.id})">Hapus</button>
-        ` : ""}
+      div.innerHTML = `
+        ${rumah.gambar 
+          ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />`
+          : `<img src="default.jpg" alt="No Image">`
+        }
+
+        <div class="info">
+          <div class="nama">${rumah.nama}</div>
+          <div class="lokasi">📍 ${rumah.lokasi}</div>
+          <div class="harga">💰 Rp${rumah.harga.toLocaleString()}</div>
+        </div>
+
+        <div class="actions">
+          ${role === "user" ? `
+            <button class="beli" onclick="location.href='beliRumah.html?id=${rumah.id}'">Tinjau Rumah</button>
+          ` : ""}
+
+          ${role === "admin" ? `
+            <button class="edit" onclick="location.href='formRumah.html?id=${rumah.id}'">Edit</button>
+            <button class="delete" onclick="hapus(${rumah.id})">Hapus</button>
+          ` : ""}
+        </div>
       `;
+
       rumahList.appendChild(div);
     });
 
@@ -75,26 +86,25 @@ async function fetchRumah() {
   }
 }
 
-
 function logout() {
-    localStorage.removeItem("token");
-    location.href = "login.html";
+  localStorage.removeItem("token");
+  location.href = "login.html";
 }
 
 async function hapus(id) {
-    if (!confirm("Yakin ingin menghapus rumah ini?")) return;
-    try {
-        await fetch(`http://localhost:5000/rumah/${id}`, {
-            method: "DELETE",
-            headers: {
-                Authorization: `Bearer ${token}`
-            }
-        });
-        alert("Rumah berhasil dihapus");
-        fetchRumah();
-    } catch (err) {
-        alert("Gagal menghapus rumah");
-    }
+  if (!confirm("Yakin ingin menghapus rumah ini?")) return;
+  try {
+    await fetch(`http://localhost:5000/rumah/${id}`, {
+      method: "DELETE",
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    });
+    alert("Rumah berhasil dihapus");
+    fetchRumah();
+  } catch (err) {
+    alert("Gagal menghapus rumah");
+  }
 }
 
 fetchRumah();

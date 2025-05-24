@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Rumah</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/index_custom.css" />
 </head>
+
 <body>
   <nav class="navbar">
     <div class="navbar-left">
-      <a href="index.html" class="brand">HOMIZ</a>
-    </div>
+      <a href="index.html" class="brand">
+        <img src="css/logo.png" alt="Logo HOMIZ" class="logo" />
+        HOMIZ
+      </a> </div>
     <div class="navbar-center">
       <a href="formRumah.html" id="link-tambah-rumah" style="display:none;">Tambah Rumah</a>
       <a href="transaksi.html" id="link-transaksi" style="display:none;">Transaksi</a>
@@ -23,21 +26,22 @@
   </nav>
 
   <main class="main-wrapper">
-  <section class="search-section">
-    <h2>Cari Rumah</h2>
-    <input type="text" id="search-nama" placeholder="Cari berdasarkan nama" />
-    <input type="text" id="search-lokasi" placeholder="Cari berdasarkan lokasi" />
-    <input type="number" id="search-harga" placeholder="Harga maksimal (opsional)" />
-    <button onclick="fetchRumah()">Cari</button>
-  </section>
+    <section class="search-section">
+      <h2>Cari Rumah</h2>
+      <input type="text" id="search-nama" placeholder="Cari berdasarkan nama" />
+      <input type="text" id="search-lokasi" placeholder="Cari berdasarkan lokasi" />
+      <input type="number" id="search-harga" placeholder="Harga maksimal (opsional)" />
+      <button onclick="fetchRumah()">Cari</button>
+    </section>
 
-  <section class="result-section">
-    <h2 style="text-align: center;">Daftar Rumah</h2>
-    <div id="rumah-list" class="grid-container"></div>
-  </section>
-</main>
+    <section class="result-section">
+      <!-- <h2 style="text-align: center;">Daftar Rumah</h2> -->
+      <div id="rumah-list" class="grid-container"></div>
+    </section>
+  </main>
 
 
   <script src="js/index.js"></script>
 </body>
+
 </html>

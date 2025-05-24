@@ -1,10 +1,16 @@
+/* --- GLOBAL --- */
 body {
-  font-family: sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   padding: 0;
   background: #f9f9f9;
 }
 
+main {
+  padding: 0;
+}
+
+/* --- NAVBAR --- */
 .navbar {
   position: relative;
   display: flex;
@@ -14,7 +20,6 @@ body {
   color: white;
   padding: 14px 20px;
   flex-wrap: nowrap;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .navbar .brand {
@@ -22,7 +27,6 @@ body {
   font-size: 1.4rem;
   color: white;
   text-decoration: none;
-
 }
 
 .navbar-left {
@@ -58,11 +62,11 @@ body {
   align-items: center;
   gap: 12px;
   font-size: 0.9rem;
-  white-space: nowrap; /* supaya nama/email tidak pecah baris */
+  white-space: nowrap;
 }
 
 .navbar-right #auth-info {
-  max-width: 180px; /* batasi panjang teks agar tetap rapi */
+  max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -82,74 +86,201 @@ button.logout:hover {
   background-color: #e24848;
 }
 
-main {
-  padding: 20px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* jarak logo dan tulisan */
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
 }
 
-.grid-container {
+.brand .logo {
+  width: 36px;  /* ukuran logo */
+  height: auto;
+}
+
+
+/* --- MAIN LAYOUT (2 kolom) --- */
+.main-wrapper {
   display: flex;
-  flex-wrap: wrap;
+  height: calc(100vh - 60px); /* dikurangi tinggi navbar */
+  overflow: hidden;
+  gap: 0;
+}
+
+/* --- KOLOM KIRI (form pencarian) --- */
+.search-section {
+  width: 280px;
+  background: linear-gradient(to bottom right, #fff4e6, #ffe0b2);
+  padding: 24px;
+  border-right: 2px solid #ccc;
+  box-sizing: border-box;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  box-shadow: inset -3px 0 5px rgba(0,0,0,0.03);
+}
+
+.search-section h2 {
+  margin-top: 0;
+  font-size: 1.3rem;
+  color: #d35400;
+  text-align: center;
+}
+
+.search-section label {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #444;
+  font-size: 0.95rem;
+}
+
+.search-section input {
+  display: block;
+  width: 100%;
+  margin-bottom: 12px;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease;
+}
+
+.search-section input:focus {
+  outline: none;
+  border-color: #ff8c00;
+  box-shadow: 0 0 0 2px rgba(255,140,0,0.2);
+}
+
+.search-section button {
+  width: 100%;
+  background-color: #ff8c00;
+  padding: 12px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.search-section button:hover {
+  background-color: #e57c00;
+  transform: scale(1.02);
+}
+
+.search-section button:active {
+  background-color: #cc6f00;
+  transform: scale(0.98);
+}
+
+/* --- KOLOM KANAN (hasil rumah) --- */
+.result-section {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto;
+  
+}
+
+.result-section h2 {
+  margin-top: 0;
+  text-align: center;
+}
+
+/* --- GRID RUMAH --- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 20px;
 }
 
+/* --- KARTU RUMAH --- */
 .rumah {
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
   background: white;
-  border-radius: 5px;
-  padding: 10px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  padding: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 10px;
+  transition: box-shadow 0.2s ease;
 }
 
+.rumah:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
 
 .rumah img {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  margin-bottom: 10px;
-  border-radius: 4px;
+  border-radius: 6px;
   background-color: #eee;
 }
 
-.rumah a {
-  display: block;
-}
-.rumah a > button {
-  width: 100%;
-}
-
-
-button {
-  padding: 6px 12px;
-  background-color: #9f0606;
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+/* Info dalam kartu */
+.rumah .info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
-button:hover {
-  background-color: #e24848;
-}
-
-
-.rumah button.edit,
-.rumah button.delete {
-  width: 100%;
-  margin-bottom: 8px;
-  padding: 8px 0;
-  box-sizing: border-box;
+.rumah .nama {
   font-weight: bold;
-  
-  background-color: #b5b87a;
+  font-size: 1.1rem;
+  color: #333;
+}
 
+.rumah .lokasi {
+  color: #666;
+  font-size: 0.95rem;
+}
+
+.rumah .harga {
+  font-size: 1rem;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Tombol-tombol */
+.rumah .actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.rumah .actions button {
+  width: 100%;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Style tombol berdasarkan fungsi */
+.rumah button.edit {
+  background-color: #b5b87a;
+}
+
+.rumah button.edit:hover {
+  background-color: #9fa35d;
 }
 
 .rumah button.delete {
-  background-color: #000000;
+  background-color: #000;
+  color: white;
 }
 
 .rumah button.delete:hover {
@@ -158,9 +289,9 @@ button:hover {
 
 .rumah button.beli {
   background-color: #656a2e;
+  color: white;
 }
 
 .rumah button.beli:hover {
   background-color: #b3ba64;
 }
-

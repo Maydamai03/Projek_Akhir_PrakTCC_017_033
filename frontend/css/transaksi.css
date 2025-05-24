@@ -84,6 +84,22 @@ button.logout:hover {
   background-color: #e24848;
 }
 
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* jarak logo dan tulisan */
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+.brand .logo {
+  width: 36px;  /* ukuran logo */
+  height: auto;
+}
+
+
 /* ======= Heading ======= */
 h1 {
   text-align: center;
