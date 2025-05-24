@@ -4,20 +4,41 @@ import { Sequelize } from "sequelize";
 
 export const getRumah = async (req, res) => {
   try {
-    const rumah = await Rumah.findAll({
-      where: {
-        id: {
-          [Sequelize.Op.notIn]: Sequelize.literal(`(
-            SELECT rumahId FROM transaksi WHERE status = 'selesai'
-          )`)
-        }
+    const { nama, lokasi, hargaMax } = req.query;
+
+    const whereClause = {
+      id: {
+        [Sequelize.Op.notIn]: Sequelize.literal(`(
+          SELECT rumahId FROM transaksi WHERE status = 'selesai'
+        )`)
       }
-    });
+    };
+
+    if (nama) {
+      whereClause.nama = {
+        [Sequelize.Op.like]: `%${nama}%`
+      };
+    }
+
+    if (lokasi) {
+      whereClause.lokasi = {
+        [Sequelize.Op.like]: `%${lokasi}%`
+      };
+    }
+
+    if (hargaMax) {
+      whereClause.harga = {
+        [Sequelize.Op.lte]: Number(hargaMax)
+      };
+    }
+
+    const rumah = await Rumah.findAll({ where: whereClause });
     res.json(rumah);
   } catch (error) {
     res.status(500).json({ message: error.message });
   }
 };
+
 
 
 export const getRumahById = async (req, res) => {

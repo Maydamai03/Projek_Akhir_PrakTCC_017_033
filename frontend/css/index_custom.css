@@ -1,0 +1,66 @@
+/* Bungkus utama jadi 2 kolom */
+.main-wrapper {
+  display: flex;
+  height: calc(100vh - 60px); /* viewport tinggi dikurangi tinggi navbar kira-kira */
+  overflow: hidden;
+  gap: 0;
+}
+
+/* Bagian kiri - form pencarian */
+.search-section {
+  width: 280px;
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-right: 2px solid #ccc;
+  box-sizing: border-box;
+  overflow-y: auto; /* scroll jika kontennya panjang */
+}
+
+.search-section h2 {
+  margin-top: 0;
+}
+
+.search-section input {
+  display: block;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 8px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.search-section button {
+  width: 100%;
+  background-color: #4CAF50;
+  padding: 10px;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.search-section button:hover {
+  background-color: #45a049;
+}
+
+/* Bagian kanan - daftar rumah */
+.result-section {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow-y: auto; /* scroll hanya di sini */
+}
+
+.result-section h2 {
+  margin-top: 0;
+}
+
+/* Menyusun rumah jadi grid responsif */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 20px;
+}

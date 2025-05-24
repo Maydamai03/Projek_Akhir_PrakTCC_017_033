@@ -1,3 +1,8 @@
+function logout() {
+  localStorage.removeItem("token");
+  location.href = "login.html";
+}
+
 function isTokenExpired(token) {
   try {
     const payload = JSON.parse(atob(token.split('.')[1]));
@@ -47,7 +52,7 @@ async function fetchTransaksi() {
     const data = await res.json();
 
     transaksiList.innerHTML = `
-      <table>
+      <table class="transaksi-table">
         <thead>
           <tr>
             <th>ID</th>
@@ -61,11 +66,11 @@ async function fetchTransaksi() {
             <tr>
               <td>${trx.id}</td>
               <td>${trx.rumah?.nama || 'Tanpa Nama'}</td>
-              <td>${trx.status}</td>
+              <td class="status ${trx.status.toLowerCase()}">${trx.status}</td>
               ${role === "admin" ? `
                 <td>
                   ${trx.status !== "selesai" 
-                    ? `<button onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
+                    ? `<button class="btn-selesai" onclick="updateStatus(${trx.id}, 'selesai')">Selesai</button>` 
                     : "-"}
                 </td>
               ` : ""}
