@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Tambah Rumah</title>
+  <title>Form Rumah</title>
   <style>
     body { font-family: sans-serif; padding: 20px; }
     input, textarea {
@@ -19,8 +19,9 @@
 </head>
 <body>
 
-  <h1>Tambah Rumah</h1>
-<form id="formTambah" enctype="multipart/form-data">
+  <h1 id="form-title">Tambah Rumah</h1>
+
+  <form id="formRumah" enctype="multipart/form-data">
     <label>Nama:</label>
     <input type="text" name="nama" required />
 
@@ -39,6 +40,6 @@
     <button type="submit">Simpan</button>
   </form>
 
-  <script src="js/tambahRumah.js"></script>
+  <script src="js/crudRumah.js"></script>
 </body>
 </html>

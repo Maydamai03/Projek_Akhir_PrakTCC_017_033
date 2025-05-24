@@ -1,8 +1,7 @@
 const token = localStorage.getItem("token");
 const rumahList = document.getElementById("rumah-list");
 const authInfo = document.getElementById("auth-info");
-const btnTambah = document.getElementById("btnTambah");
-const btnTransaksi = document.getElementById("btnTransaksi");
+const adminLinks = document.getElementById("admin-links");
 
 if (!token) {
     location.href = "login.html";
@@ -21,11 +20,14 @@ async function fetchRumah() {
 
         const payload = JSON.parse(atob(token.split('.')[1]));
         const role = payload.role;
-        authInfo.innerText = `Login sebagai: ${payload.email} (${role})`;
+        const email = payload.email || 'pengguna';
 
-        if (role === "admin") {
-            btnTambah.style.display = "inline";
-            btnTransaksi.style.display = "inline";
+        // Tampilkan info login
+        authInfo.innerText = `Hai, ${email}`;
+
+        // Tampilkan menu admin di navbar tengah jika admin
+        if (role === "admin" && adminLinks) {
+            adminLinks.style.display = "flex";
         }
 
         rumahList.innerHTML = "";
@@ -34,12 +36,16 @@ async function fetchRumah() {
             div.className = "rumah";
             div.innerHTML = `
                 <h3>${rumah.nama}</h3>
-                ${rumah.gambar ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />` : ''}
+                ${rumah.gambar ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />` : '<img src="default.jpg" alt="No Image" />'}
                 <p>Lokasi: ${rumah.lokasi}</p>
                 <p>Harga: Rp${rumah.harga.toLocaleString()}</p>
                 <p>${rumah.deskripsi}</p>
                 ${role === "user" ? `<a href="beliRumah.html?id=${rumah.id}"><button>Beli</button></a>` : ""}
-                ${role === "admin" ? `<button onclick="hapus(${rumah.id})">Hapus</button>` : ""}
+                ${role === "admin" ? `
+                    <button class="edit" onclick="location.href='formRumah.html?id=${rumah.id}'">Edit</button>
+                    <button class="delete" onclick="hapus(${rumah.id})">Hapus</button>
+                    ` : ""}
+
             `;
             rumahList.appendChild(div);
         });
@@ -54,23 +60,6 @@ async function fetchRumah() {
 function logout() {
     localStorage.removeItem("token");
     location.href = "login.html";
-}
-
-async function beli(id) {
-    try {
-        await fetch("http://localhost:5000/transaksi", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`
-            },
-            body: JSON.stringify({ rumahId: id })
-        });
-        alert("Transaksi berhasil dibuat");
-        location.href = "./transaksi.html";
-    } catch (err) {
-        alert("Gagal melakukan transaksi");
-    }
 }
 
 async function hapus(id) {
