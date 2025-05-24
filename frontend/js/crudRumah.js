@@ -40,7 +40,7 @@ if (isEdit) {
       form.deskripsi.value = data.deskripsi;
     } catch (err) {
       alert(err.message);
-      location.href = "index.html";
+      window.location.href = "index.html";
     }
   }
 
