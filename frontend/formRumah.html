@@ -19,7 +19,7 @@
 
    <nav class="navbar">
     <div class="navbar-left">
-<a href="index.html" class="brand">
+      <a href="index.html" class="brand">
         <img src="css/logo.png" alt="Logo HOMIZ" class="logo" />
         HOMIZ
       </a>     </div>
@@ -58,10 +58,13 @@
     </div>
 
     <!-- Kanan: Deskripsi -->
-    <div class="form-right">
-      <label>Deskripsi:</label>
-      <textarea name="deskripsi" required></textarea>
-    </div>
+<div class="form-right">
+  <label>Deskripsi:</label>
+  <textarea id="deskripsiInput" placeholder="Tekan '-' ,lalu tulis deskripsi dan tekan Enter"></textarea>
+  <ul id="deskripsiList"></ul>
+  <input type="hidden" name="deskripsi" id="deskripsiHidden" required />
+</div>
+
   </div>
 
   <!-- Bawah: Tombol -->
@@ -74,7 +77,7 @@
 
 
 
-  <script src="js/crudRumah.js"></script>
+  <script src="js/formRumah.js"></script>
   <script src="js/index.js"></script>
 
 </body>

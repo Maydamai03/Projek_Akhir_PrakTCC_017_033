@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daftar Rumah</title>
   <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
 </head>
 
 <body>
@@ -31,7 +33,9 @@
       <input type="text" id="search-nama" placeholder="Cari berdasarkan nama" />
       <input type="text" id="search-lokasi" placeholder="Cari berdasarkan lokasi" />
       <input type="number" id="search-harga" placeholder="Harga maksimal (opsional)" />
-      <button onclick="fetchRumah()">Cari</button>
+      <button onclick="fetchRumah()">
+        <i class="fas fa-search"></i> Cari
+      </button>
     </section>
 
     <section class="result-section">

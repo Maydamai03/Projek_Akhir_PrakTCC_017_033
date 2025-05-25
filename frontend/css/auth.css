@@ -13,6 +13,7 @@ body {
   position: relative;
 }
 
+
 /* Overlay blur agar background kabur */
 body::before {
   content: '';
@@ -24,6 +25,19 @@ body::before {
   backdrop-filter: blur(5px); /* efek blur */
   background-color: rgba(0, 0, 0, 0.2); /* gelap sedikit, bisa diatur */
   z-index: 0;
+}
+
+.title-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* atau 'space-between' jika mau pisah */
+  gap: 10px; /* jarak antara logo dan teks */
+  margin-bottom: 20px;
+}
+
+.logo-inline {
+  width: 80px; /* ukuran logo kecil biar sejajar */
+  height: auto;
 }
 
 /* Card (form container) */

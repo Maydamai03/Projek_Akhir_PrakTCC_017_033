@@ -5,6 +5,16 @@ body {
   background: #f9f9f9;
 }
 
+.main-wrapper,
+.form-wrapper,
+.tabel-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
 .navbar {
   position: relative;
   display: flex;
@@ -22,7 +32,6 @@ body {
   font-size: 1.4rem;
   color: white;
   text-decoration: none;
-
 }
 
 .navbar-left {
@@ -58,18 +67,18 @@ body {
   align-items: center;
   gap: 12px;
   font-size: 0.9rem;
-  white-space: nowrap; /* supaya nama/email tidak pecah baris */
+  white-space: nowrap;
 }
 
 .navbar-right #auth-info {
-  max-width: 180px; /* batasi panjang teks agar tetap rapi */
+  max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 button.logout {
-  padding: 6px 12px;
-  background-color: #9f0606;
+  padding: 12px 16px;
+  background-color: #e60707;
   color: white;
   border: none;
   border-radius: 4px;
@@ -85,7 +94,7 @@ button.logout:hover {
 .brand {
   display: flex;
   align-items: center;
-  gap: 8px; /* jarak logo dan tulisan */
+  gap: 8px;
   color: white;
   text-decoration: none;
   font-weight: 700;
@@ -93,39 +102,35 @@ button.logout:hover {
 }
 
 .brand .logo {
-  width: 36px;  /* ukuran logo */
+  width: 36px;
   height: auto;
 }
-
 
 #form-title {
   color: #ff8c00;
   font-size: 2rem;
-  margin: 20px 0;
+  margin: 30px 0;
   text-align: center;
 }
 
-/* Form wrapper and card styling */
 .form-wrapper {
   max-width: 1200px;
-  margin: 0 auto 40px; /* Ditambahkan margin-bottom 40px */
+  margin: 0 auto 40px;
   padding: 0 20px;
 }
 
-/* Atau alternatifnya bisa di .form-card */
 .form-card {
   background: #fff;
   padding: 30px;
   border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-  margin-bottom: 40px; /* Opsi alternatif */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 40px;
 }
 
-/* Form layout */
 .form-top {
   display: flex;
   gap: 30px;
-  margin-bottom: 30px; /* Added spacing before the button */
+  margin-bottom: 30px;
   flex-wrap: wrap;
 }
 
@@ -137,12 +142,19 @@ button.logout:hover {
   flex-direction: column;
 }
 
-.form-left,
-.form-center {
+.form-left {
   border-right: 1px solid #ddd;
 }
 
-/* Input fields styling */
+.form-center {
+  border-right: none;
+}
+
+.form-right {
+  border-left: 1px solid #ddd;
+}
+
+/* Input fields */
 label {
   font-weight: bold;
   margin-bottom: 8px;
@@ -165,14 +177,52 @@ input:focus, textarea:focus {
   outline: none;
 }
 
-/* Make textarea fill available height */
 textarea {
   flex-grow: 1;
   min-height: 150px;
   resize: vertical;
+  margin-bottom: 10px;
 }
 
-/* Button styling */
+/* Deskripsi */
+.form-right label {
+  margin-bottom: 10px;
+}
+
+#deskripsiList {
+  margin: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+#deskripsiList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff8f0;
+  padding: 10px 14px;
+  border: 1px solid #ffe0b3;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  color: #333;
+}
+
+#deskripsiList li button {
+  background-color: transparent;
+  border: none;
+  color: #d9534f;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-left: 12px;
+  transition: color 0.2s ease;
+}
+
+#deskripsiList li button:hover {
+  color: #c9302c;
+}
+
+/* Tombol simpan */
 .form-bottom button {
   background-color: #28a745;
   color: white;
@@ -190,18 +240,20 @@ textarea {
   background-color: #218838;
 }
 
-/* Responsive adjustments */
+/* Responsive */
 @media (max-width: 768px) {
   .form-left, .form-center {
     border-right: none;
     border-bottom: 1px solid #ddd;
     padding-bottom: 20px;
   }
-  
+
+  .form-right {
+    border-left: none;
+  }
+
   .form-top {
     flex-direction: column;
     gap: 20px;
   }
 }
-
-

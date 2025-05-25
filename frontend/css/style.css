@@ -72,8 +72,8 @@ main {
 }
 
 button.logout {
-  padding: 6px 12px;
-  background-color: #9f0606;
+  padding: 12px 16px;
+  background-color: #e60707;
   color: white;
   border: none;
   border-radius: 4px;
@@ -112,8 +112,8 @@ button.logout:hover {
 
 /* --- KOLOM KIRI (form pencarian) --- */
 .search-section {
+  position: relative;
   width: 280px;
-  background: linear-gradient(to bottom right, #fff4e6, #ffe0b2);
   padding: 24px;
   border-right: 2px solid #ccc;
   box-sizing: border-box;
@@ -121,13 +121,29 @@ button.logout:hover {
   display: flex;
   flex-direction: column;
   gap: 14px;
-  box-shadow: inset -3px 0 5px rgba(0,0,0,0.03);
+  z-index: 1;
 }
+
+/* Tambahan: background blur pakai ::before */
+.search-section::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-image: url('bg.jpg'); /* ← Sesuaikan path */
+  background-size: cover;
+  background-position: center;
+  filter: blur(15px); /* ← Atur blur di sini */
+  opacity: 0.5;      /* ← Atur opacity di sini */
+  z-index: -1;       /* Biar di belakang konten */
+  border-right: 2px solid #ccc; /* ikuti garis kanan biar konsisten */
+}
+
 
 .search-section h2 {
   margin-top: 0;
   font-size: 1.3rem;
-  color: #d35400;
+  color: #5d2704;
   text-align: center;
 }
 
@@ -158,26 +174,34 @@ button.logout:hover {
 
 .search-section button {
   width: 100%;
-  background-color: #ff8c00;
-  padding: 12px;
-  border: none;
-  color: white;
+  background-color: rgb(255, 169, 83);
+  padding: 10px;
+  /* border: none; */
+  border: 1px solid #ccc;
+  color: rgb(255, 255, 255);
   font-weight: bold;
   font-size: 1rem;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease, transform 0.1s ease;
+  /* border-style:double; */
+  
 }
 
 .search-section button:hover {
-  background-color: #e57c00;
-  transform: scale(1.02);
+  background-color: rgb(231, 129, 28);
+  /* transform: scale(1.02); */
 }
 
 .search-section button:active {
   background-color: #cc6f00;
   transform: scale(0.98);
 }
+
+button i {
+  margin-right: 6px;
+}
+
 
 /* --- KOLOM KANAN (hasil rumah) --- */
 .result-section {
@@ -262,7 +286,7 @@ button.logout:hover {
 .rumah .actions button {
   width: 100%;
   padding: 8px;
-  border: none;
+  /* border: none; */
   border-radius: 6px;
   font-weight: 600;
   cursor: pointer;
@@ -271,16 +295,19 @@ button.logout:hover {
 
 /* Style tombol berdasarkan fungsi */
 .rumah button.edit {
-  background-color: #b5b87a;
+  background-color: #ffffff;
+  border: 1px solid #ccc;
 }
 
 .rumah button.edit:hover {
-  background-color: #9fa35d;
+  background-color: #dadada;
 }
 
 .rumah button.delete {
   background-color: #000;
   color: white;
+  border: none; 
+
 }
 
 .rumah button.delete:hover {
@@ -288,10 +315,12 @@ button.logout:hover {
 }
 
 .rumah button.beli {
-  background-color: #656a2e;
+  background-color: #0d9d9b;
   color: white;
+    border: none; 
+
 }
 
 .rumah button.beli:hover {
-  background-color: #b3ba64;
+  background-color: #78dbd9;
 }

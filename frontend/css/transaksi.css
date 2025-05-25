@@ -6,6 +6,17 @@ body {
   background: #f9f9f9;
 }
 
+.main-wrapper,
+.form-wrapper,
+.tabel-wrapper {
+  padding-left: 30px;
+  padding-right: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+
 /* ======= Navbar ======= */
 .navbar {
   position: relative;
@@ -70,8 +81,8 @@ body {
 }
 
 button.logout {
-  padding: 6px 12px;
-  background-color: #9f0606;
+  padding: 12px 16px;
+  background-color: #e60707;
   color: white;
   border: none;
   border-radius: 4px;
@@ -138,7 +149,7 @@ tbody tr:hover {
 
 button {
   padding: 8px 14px;
-  background-color: #ff8c00;
+  background-color: #47e72f;
   color: white;
   border: none;
   border-radius: 6px;
@@ -149,7 +160,7 @@ button {
 }
 
 button:hover {
-  background-color: #e67600;
+  background-color: #329c21;
 }
 
 /* Warna primer untuk judul */
