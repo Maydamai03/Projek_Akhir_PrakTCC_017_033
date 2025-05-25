@@ -34,7 +34,7 @@ try {
 
 async function fetchRumah() {
   try {
-    const res = await fetch(`http://localhost:5000/rumah/${rumahId}`, {
+    const res = await fetch(`${baseURL}/rumah/${rumahId}`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -42,7 +42,7 @@ async function fetchRumah() {
 
     const rumah = await res.json();
     const imageUrl = rumah.gambar
-      ? `http://localhost:5000/uploads/${rumah.gambar}`
+      ? `${baseURL}/uploads/${rumah.gambar}`
       : 'image/default.avif';
 
     gambarDiv.innerHTML = `<img src="${imageUrl}" alt="${rumah.nama}" />`;
@@ -55,7 +55,6 @@ async function fetchRumah() {
       <p><strong>Deskripsi Lengkap: <br></strong>${rumah.deskripsi}</p>
     `;
 
-    // Tambahkan tombol Hubungi Admin setelah rumah ditampilkan
     const buttonContainer = document.querySelector(".button-container");
     const hubungiBtn = document.createElement("a");
     hubungiBtn.href = "https://www.instagram.com/wahyu_vr311?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==";
@@ -90,7 +89,7 @@ function showConfirmPopup() {
 
   yesBtn.addEventListener("click", async () => {
     try {
-      const res = await fetch("http://localhost:5000/transaksi", {
+      const res = await fetch(`${baseURL}/transaksi`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

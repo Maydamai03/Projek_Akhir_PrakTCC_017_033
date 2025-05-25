@@ -1,3 +1,6 @@
+// Pastikan sudah load config.js sebelum ini
+// Contoh: <script src="js/config.js"></script> di HTML
+
 // Ambil token dulu
 const token = localStorage.getItem("token");
 
@@ -56,7 +59,7 @@ const transaksiList = document.getElementById("transaksiList");
 // Fungsi ambil data transaksi dan render ke tabel
 async function fetchTransaksi() {
   try {
-    const res = await fetch("http://localhost:5000/transaksi", {
+    const res = await fetch(`${baseURL}/transaksi`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -112,7 +115,7 @@ async function fetchTransaksi() {
 async function updateStatus(id, status) {
   if (!confirm("Update status transaksi?")) return;
   try {
-    const res = await fetch(`http://localhost:5000/transaksi/${id}`, {
+    const res = await fetch(`${baseURL}/transaksi/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

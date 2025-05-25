@@ -7,7 +7,7 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
   const role = "user"; // default role
 
   try {
-    const response = await fetch("http://localhost:5000/register", {
+    const response = await fetch(`${baseURL}/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"

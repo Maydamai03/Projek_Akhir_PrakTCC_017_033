@@ -19,7 +19,7 @@ async function fetchRumah() {
   if (hargaMax) query.append("hargaMax", hargaMax);
 
   try {
-    const res = await fetch(`http://localhost:5000/rumah?${query.toString()}`, {
+    const res = await fetch(`${baseURL}/rumah?${query.toString()}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -28,7 +28,6 @@ async function fetchRumah() {
     if (!res.ok) throw new Error("Token tidak valid");
     const data = await res.json();
 
-    // Ambil payload dari token
     const payload = JSON.parse(atob(token.split('.')[1]));
     const role = payload.role || 'user';
     const email = payload.email || 'pengguna';
@@ -54,7 +53,7 @@ async function fetchRumah() {
 
       div.innerHTML = `
         ${rumah.gambar 
-          ? `<img src="http://localhost:5000/uploads/${rumah.gambar}" alt="${rumah.nama}" />`
+          ? `<img src="${baseURL}/uploads/${rumah.gambar}" alt="${rumah.nama}" />`
           : `<img src="default.jpg" alt="No Image">`
         }
 
@@ -94,7 +93,7 @@ function logout() {
 async function hapus(id) {
   if (!confirm("Yakin ingin menghapus rumah ini?")) return;
   try {
-    await fetch(`http://localhost:5000/rumah/${id}`, {
+    await fetch(`${baseURL}/rumah/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${token}`

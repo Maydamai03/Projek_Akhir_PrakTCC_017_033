@@ -15,7 +15,7 @@ const role = payload.role;
 
 const adminLinks = document.getElementById("admin-links");
 if (role === "admin" && adminLinks) {
-    adminLinks.style.display = "flex";
+  adminLinks.style.display = "flex";
 }
 
 authInfo.innerText = `Hai, ${email}`;
@@ -65,14 +65,13 @@ function renderDeskripsi() {
   deskripsiHidden.value = deskripsiItems.join("\n");
 }
 
-
 // Jika edit, ubah judul halaman dan isi form
 if (isEdit) {
   title.innerText = "Edit Rumah";
 
   async function loadRumah() {
     try {
-      const res = await fetch(`http://localhost:5000/rumah/${rumahId}`, {
+      const res = await fetch(`${baseURL}/rumah/${rumahId}`, {
         headers: {
           Authorization: `Bearer ${token}`
         }
@@ -106,7 +105,7 @@ form.addEventListener("submit", async (e) => {
 
   try {
     const res = await fetch(
-      isEdit ? `http://localhost:5000/rumah/${rumahId}` : "http://localhost:5000/rumah",
+      isEdit ? `${baseURL}/rumah/${rumahId}` : `${baseURL}/rumah`,
       {
         method: isEdit ? "PATCH" : "POST",
         headers: {
@@ -116,10 +115,9 @@ form.addEventListener("submit", async (e) => {
       }
     );
 
-    // Ambil hasil respons
     const contentType = res.headers.get("content-type");
-
     let message = "";
+
     if (contentType && contentType.includes("application/json")) {
       const json = await res.json();
       message = json.message;
@@ -135,7 +133,6 @@ form.addEventListener("submit", async (e) => {
     alert("Error: " + err.message);
   }
 });
-
 
 function logout() {
   localStorage.removeItem("token");
